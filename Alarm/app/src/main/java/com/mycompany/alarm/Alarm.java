@@ -35,7 +35,7 @@ public class Alarm extends AppCompatActivity {
         i = new Intent(this, AlarmSound.class);
         c = this;
 
-        TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+        final TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
         timePicker.setHour(12);
         timePicker.setMinute(15);
 
@@ -49,18 +49,40 @@ public class Alarm extends AppCompatActivity {
                 PendingIntent pending = PendingIntent.getActivity(c, 1235, i, PendingIntent.FLAG_CANCEL_CURRENT);
                 t.add(Calendar.SECOND, 15);
                 AlarmManager alarm = (AlarmManager) getSystemService(Activity.ALARM_SERVICE);
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
-                calendar.set(Calendar.MINUTE, minute);
-                Log.e(Integer.toString(Calendar.HOUR_OF_DAY), Integer.toString(Calendar.HOUR_OF_DAY));
-                Log.e(Integer.toString(Calendar.MINUTE), Integer.toString(Calendar.MINUTE));
+                Calendar calNow = Calendar.getInstance();
+                Calendar calSet = (Calendar) calNow.clone();
 
-                alarm.set(AlarmManager.RTC_WAKEUP, t.getTimeInMillis(), pending);
+                calSet.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                calSet.set(Calendar.MINUTE, minute);
+                calSet.set(Calendar.SECOND, 0);
+                calSet.set(Calendar.MILLISECOND, 0);
+
+                if(calSet.compareTo(calNow) <= 0){
+                    //Today Set time passed, count to tomorrow
+                    calSet.add(Calendar.DATE, 1);
+                }
+                Log.e(Integer.toString(calSet.HOUR_OF_DAY), Integer.toString(Calendar.HOUR_OF_DAY));
+                Log.e(Integer.toString(calSet.MINUTE), Integer.toString(Calendar.MINUTE));
+
+                setAlarm(calSet);
+               // calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                // calendar.set(Calendar.MINUTE, minute);
+                //Log.e(Integer.toString(Calendar.HOUR_OF_DAY), Integer.toString(Calendar.HOUR_OF_DAY));
+               // Log.e(Integer.toString(Calendar.MINUTE), Integer.toString(Calendar.MINUTE));
+               //t = calendar;
+                //Log.e(calendar.getTime().toString(),"HI");
+                //alarm.set(AlarmManager.RTC_WAKEUP, t.getTimeInMillis(), pending);
 
             }
         });
     }
+    private void setAlarm(Calendar targetCal){
+        Intent intent = new Intent(getBaseContext(), Alarm.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getBaseContext(), 1235, intent, 0);
+        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(), pendingIntent);
 
+    }
     private void updateDisplay(int hourOfDay, int minute) {
         Log.e(Integer.toString(hourOfDay) + " and " + Integer.toString(minute),"HI");
     }

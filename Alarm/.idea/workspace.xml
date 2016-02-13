@@ -46,12 +46,12 @@
       <file leaf-file-name="Alarm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mycompany/alarm/Alarm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7862233">
-              <caret line="55" column="77" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
+            <state vertical-scroll-proportion="0.4655582">
+              <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1209#2171#0" expanded="true" />
-                <element signature="e#2170#2171#0" expanded="true" />
+                <element signature="e#1215#2964#0" expanded="true" />
+                <element signature="e#2963#2964#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1863,12 +1863,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mycompany/alarm/Alarm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7862233">
-          <caret line="55" column="77" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
+        <state vertical-scroll-proportion="0.4655582">
+          <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1209#2171#0" expanded="true" />
-            <element signature="e#2170#2171#0" expanded="true" />
+            <element signature="e#1215#2964#0" expanded="true" />
+            <element signature="e#2963#2964#0" expanded="true" />
           </folding>
         </state>
       </provider>
