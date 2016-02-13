@@ -46,8 +46,8 @@
       <file leaf-file-name="Alarm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mycompany/alarm/Alarm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4655582">
-              <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.75059384">
+              <caret line="81" column="67" selection-start-line="81" selection-start-column="66" selection-end-line="81" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1215#2964#0" expanded="true" />
@@ -1863,8 +1863,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mycompany/alarm/Alarm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4655582">
-          <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.75059384">
+          <caret line="81" column="67" selection-start-line="81" selection-start-column="66" selection-end-line="81" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1215#2964#0" expanded="true" />
