@@ -14,6 +14,8 @@ import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TimePicker;
+
 import java.util.Calendar;
 
 public class Alarm extends AppCompatActivity {
@@ -30,6 +32,12 @@ public class Alarm extends AppCompatActivity {
         PendingIntent pending = PendingIntent.getActivity(this,1235, i, PendingIntent.FLAG_CANCEL_CURRENT);
 
         AlarmManager alarm = (AlarmManager)getSystemService(Activity.ALARM_SERVICE);
+
+        TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
+        calendar.set(Calendar.MINUTE, timePicker.getMinute());
         alarm.set(AlarmManager.RTC_WAKEUP, t.getTimeInMillis(), pending);
         //startActivity(intent);
     }
