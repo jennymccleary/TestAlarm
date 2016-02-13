@@ -18,23 +18,33 @@ import android.widget.Button;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
+import android.app.Activity;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.os.Bundle;
 
 public class Alarm extends AppCompatActivity {
     private Intent i;
     private Context c;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_alarm);
 
+        setContentView(R.layout.activity_alarm);
         i = new Intent(this, AlarmSound.class);
         c = this;
 
         TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
-         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+        timePicker.setHour(12);
+        timePicker.setMinute(15);
+
+        updateDisplay(12, 15);
+
+        timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
 
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                updateDisplay(hourOfDay, minute);
                 Calendar t = Calendar.getInstance();
                 PendingIntent pending = PendingIntent.getActivity(c, 1235, i, PendingIntent.FLAG_CANCEL_CURRENT);
                 t.add(Calendar.SECOND, 15);
@@ -49,28 +59,16 @@ public class Alarm extends AppCompatActivity {
 
             }
         });
-        //startActivity(intent);
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle actiond bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    private void updateDisplay(int hourOfDay, int minute) {
+        Log.e(Integer.toString(hourOfDay) + " and " + Integer.toString(minute),"HI");
+    }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    private static String pad(int c) {
+        if (c >= 10)
+            return String.valueOf(c);
+        else
+            return "0" + String.valueOf(c);
     }
 }
